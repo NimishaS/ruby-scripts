@@ -1,1 +1,37 @@
-puts "test"
+require 'ridley'
+
+ridley = Ridley.new(
+  server_url: "https://api.opscode.com/organizations/nimisha",
+  client_name: "msys_ci",
+  client_key: "-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAtiDomZwZxSj7I78OmyF0wwSgLZDU3d5bJ/qxjELR9vSewA2v
+oLf+1leNGxsO3zagZVBTbKTT/z1KkqtRX1NZlwdmFAfx0KzgE6xti05yADUC+XKx
+BbMeBLan6npsNNdi49U+2Xt33zY8yMa/YAzK6hi9SPJHrvSVEba3Ug1g7Z1aKIsr
+Y0GZqqmREUicZYp+ivX6tn1PTcCmTATD/cujlZKMhrMkxJGMVXm6dr5nYc4Npymy
+Y6qjaLxwgAvd7kqzGMwLOkg3VOAClxQa9ONCOT++nvNDJdXyp5jSk63OqynILws0
+sQhCoPBcD+cd/7SRQyKusZRCeEDLrKre08h7iwIDAQABAoIBAH42P/pzWshupdsX
+w59th+S9h+MLwvgd5z3FVNTGWYqx6nFdCqBt4YPYGEj4b03wJScQiz922hK+/ra1
+UialNCidT/gBqWna402+6Arpycaq9ey3tkUk42CQ07yCKgpUWItac7ty/JcKlwTr
+9iMxukyP6FxsyZBMniEwZcnOy6TdgpAgfDaAagqdc3NkOf8mb6sWxi/G5cXg1dch
+Idl4AxZERvyNrlcFPjh3bb8ULFHwqgYB+ISqlIL7c6pXkUX4IBDRU7ICObPLeDEE
+mLiqsHvfbkqub7i4s5Q6BTgwHnMjOXNNsYRyY0cO8zH80KgfWyd69qnu3VwMQGsW
+cNKp68ECgYEA5Yh485kYX9VeZDMSEWOEbSmehJjhEjJB9JuGwkG2GCSPV5FhnYHX
+dqLtl+7e0Ikm8aG4BsPJdpXCMCKFaOkMpapYBEE2Vbc3eQ3rdzpHlqWImxXamzyC
++V0OZprXFsXs5PY47s4xmRb52XRrZl1aRaHoDNUKCVbo8XiRgB3a6BUCgYEAyyEd
+GzSlxeyFIdw7ETB35HUxH8SzblLJzNYbSjtI1hUGG770HzOlLTRXhR18Oju956EW
+OkPqO35V+xFjTu4Cz0lJqIbbnK2MJodT9x+lIi7XDaclw8jPDITFWg6iXyGzJNel
+6w3hqrQF9v2EoY4mgj7YERTU2622Y8ot3aUMHR8CgYEAiIyjx+dwBLMesGVhfk7B
+3V9BGokIfJbBfg94H+CPv9UgIWwvslAoKj/LMPO+QjkVnfIjVILtO0rkd1ZSH5Nl
+Hrk0G3PgKyYQLkgFqKxXIlvf5MMfhfJ9yHN/ubKr+rRMtfl07TxlbTmp8Z+8tO0c
+Ywhq0Bd9HQlDE0Qy6xDXxfECgYBYy+P2ZaBmEkvsjmJ/1ClFBHnyAkHR43z1/060
+t4/SjiQ6ctIy5Ze6WBw+Q7JvnngYzpFx7Qhy83pQo7w+38r4pHf/pNxR9IfEu/nX
+mMzOUZ2PCVd368ufFFdVU/plDc1LOL3+L/ZLciD9ZLvbB9ILs78uUGXwllKZ8uLz
+9leCTwKBgCmFnG45EkENsXVVPX4HHmZShmLHOQH/BKqOeUHpgZf1Bn9Frr8t0QCL
+5qpEkQlxynUODM/vbWJlwQXMhkN3N17YcUPjs6ln6XH1OZJDw73mRDN2L3FO/koj
+VTryJyfAy95V2KnFMd7UQGJFxmZwvoiWVP4YABLsoPc4tdD54xBp
+-----END RSA PRIVATE KEY-----"
+)
+
+node = ridley.node.find("msys_ci")
+node.set_chef_attribute("knife_ec2_gempath","http://49.248.126.246:2204//artifactory/ruby-local/gems/knife-ec2-0.13.0.gem")
+node.save
