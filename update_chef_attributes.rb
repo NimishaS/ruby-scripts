@@ -33,5 +33,5 @@ VTryJyfAy95V2KnFMd7UQGJFxmZwvoiWVP4YABLsoPc4tdD54xBp
 )
 
 node = ridley.node.find("msys_ci")
-node.set_chef_attribute("knife_ec2_gempath","http://49.248.126.246:2204//artifactory/ruby-local/gems/knife-ec2-0.13.0.gem")
+node.set_chef_attribute("knife_ec2_gempath","http://49.248.126.246:2204//artifactory/ruby-local/gems/knife-ec2-#{ARGV[0]}.gem")
 node.save
